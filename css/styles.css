@@ -75,7 +75,7 @@ header nav a.cart-button-nav {
 }
 
 #banner {
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/img/banner_bg.webp') no-repeat center center/cover;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('img/banner_bg.webp') no-repeat center center/cover;
     color: #ffffff;
     text-align: center;
     padding: 80px 0;
