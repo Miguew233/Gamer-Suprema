@@ -2,8 +2,8 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #1a1a1a;
-    color: #f0f0f0;
+    background-color: #1a1a1a; /* Dark background */
+    color: #f0f0f0; /* Light text */
     line-height: 1.6;
 }
 
@@ -16,11 +16,11 @@ body {
 }
 
 header {
-    background: #2c2c2c;
+    background: #2c2c2c; /* Slightly lighter dark shade */
     color: #ffffff;
     padding-top: 20px;
     padding-bottom: 10px;
-    border-bottom: 3px solid #00c6ff;
+    border-bottom: 3px solid #00c6ff; /* Neon blue accent */
 }
 
 header .container {
@@ -62,7 +62,7 @@ header nav a:hover,
 header nav a#cart-link:hover,
 header nav a.cart-button-nav:hover,
 header nav a.active-nav {
-    color: #00c6ff;
+    color: #00c6ff; /* Neon blue accent */
 }
 
 header nav a#cart-link,
@@ -75,10 +75,32 @@ header nav a.cart-button-nav {
 }
 
 #banner {
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/img/banner_bg.webp') no-repeat center center/cover;
+    position: relative; /* Needed for absolute positioning of child elements */
     color: #ffffff;
     text-align: center;
     padding: 80px 0;
+    overflow: hidden; /* Ensure image doesn't overflow */
+}
+
+#banner .banner-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Cover the entire section */
+    z-index: -2; /* Behind the text and overlay */
+}
+
+#banner::before { /* Overlay effect */
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: -1; /* Between image and text */
 }
 
 #banner h2 {
@@ -126,13 +148,13 @@ header nav a.cart-button-nav {
 
 .product-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 10px 25px rgba(0, 198, 255, 0.4);
+    box-shadow: 0 10px 25px rgba(0, 198, 255, 0.4); /* Neon blue glow on hover */
 }
 
 .product-card img {
     max-width: 100%;
-    height: 200px;
-    object-fit: contain;
+    height: 200px; /* Fixed height for images */
+    object-fit: contain; /* Scales image while maintaining aspect ratio */
     margin-bottom: 15px;
     border-radius: 5px;
 }
@@ -147,14 +169,14 @@ header nav a.cart-button-nav {
     font-size: 0.9em;
     color: #cccccc;
     margin-bottom: 15px;
-    flex-grow: 1;
-    min-height: 60px;
+    flex-grow: 1; /* Allows description to take available space */
+    min-height: 60px; /* Ensure some minimum height for descriptions */
 }
 
 .product-card .price {
     font-size: 1.3em;
     font-weight: bold;
-    color: #6eff3e;
+    color: #6eff3e; /* Neon green for price */
     margin-bottom: 20px;
 }
 
@@ -173,7 +195,7 @@ header nav a.cart-button-nav {
 }
 
 .buy-button:hover {
-    background: #00a5d9;
+    background: #00a5d9; /* Darker shade of blue on hover */
     transform: scale(1.05);
 }
 
@@ -194,7 +216,7 @@ header nav a.cart-button-nav {
 }
 
 #carrinho-main .checkout-button {
-    background: #6eff3e;
+    background: #6eff3e; /* Neon green for checkout */
     color: #1a1a1a;
     border: none;
     padding: 15px 30px;
@@ -208,7 +230,7 @@ header nav a.cart-button-nav {
 }
 
 #carrinho-main .checkout-button:hover {
-    background: #5cc82a;
+    background: #5cc82a; /* Darker shade of green on hover */
     transform: scale(1.05);
 }
 
@@ -221,7 +243,7 @@ footer {
     border-top: 3px solid #00c6ff;
 }
 
-
+/* Responsive adjustments */
 @media (max-width: 768px) {
     header .container {
         flex-direction: column;
@@ -247,7 +269,7 @@ footer {
     }
 
     .product-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr; /* Single column on smaller screens */
     }
     
     .product-card img {
